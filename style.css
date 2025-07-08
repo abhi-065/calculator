@@ -12,6 +12,7 @@ body {
     border-radius: 50px;
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
 .display {
@@ -62,6 +63,10 @@ body {
 }
 
 .calculate {
+    background-color: #FF9F0A;
+}
+
+#division {
     background-color: #FF9F0A;
 }
 
