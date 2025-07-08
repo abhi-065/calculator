@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-</head>
-<body>
-    <div class="calculator">
-        <div class="display">
-            <div class="upperDisplay"></div>
-            <div class="lowerDisplay"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link href="style.css", rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=backspace" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="calculator">
+            <div class="display">
+                <div class="upperDisplay">38,670÷50,000</div>
+                <div class="lowerDisplay">0.7734</div>
+            </div>
+            <div class="buttons">
+                <div class="firstRow">
+                    <div id="clear" class="button">AC</div>
+                    <div id="backspace" class="button"><span class="material-symbols-outlined">backspace</span></div>
+                    <div id="percentage" class="button">%</div>
+                    <div id="division" class="button calculate">÷</div>
+                </div>
+                <div class="secondRow">
+                    <div id="seven" class="button">7</div>
+                    <div id="eight" class="button">8</div>
+                    <div id="nine" class="button">9</div>
+                    <div id="multiply" class="button calculate">×</div>
+                </div>
+                <div class="thirdRow">
+                    <div id="four" class="button">4</div>
+                    <div id="five" class="button">5</div>
+                    <div id="six" class="button">6</div>
+                    <div id="minus" class="button calculate">-</div>
+                </div>
+                <div class="fourthRow">
+                    <div id="one" class="button">1</div>
+                    <div id="two" class="button">2</div>
+                    <div id="three" class="button">3</div>
+                    <div id="plus" class="button calculate">+</div>
+                </div>
+                <div class="fifthRow">
+                    <div id="doubleZero" class="button">00</div>
+                    <div id="zero" class="button">0</div>
+                    <div id="dot" class="button">.</div>
+                    <div id="equalsTo" class="button calculate">=</div>
+                </div>
+            </div>
         </div>
-        <div class="buttons">
-            <div class="firstRow">
-                <div class="clear"></div>
-                <div class="backspace"></div>
-                <div class="percentage"></div>
-                <div class="division"></div>
-            </div>
-            <div class="secondRow">
-                <div class="seven"></div>
-                <div class="eight"></div>
-                <div class="nine"></div>
-                <div class="multiply"></div>
-            </div>
-            <div class="thirdRow">
-                <div class="four"></div>
-                <div class="five"></div>
-                <div class="six"></div>
-                <div class="minus"></div>
-            </div>
-            <div class="fourthRow">
-                <div class="one"></div>
-                <div class="two"></div>
-                <div class="three"></div>
-                <div class="plus"></div>
-            </div>
-            <div class="fifthRow">
-                <div class="doubleZero"></div>
-                <div class="zero"></div>
-                <div class="dot"></div>
-                <div class="equalsTo"></div>
-            </div>
-        </div>
-    </div>
-</body>
+    </body>
 </html>
