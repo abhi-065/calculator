@@ -1,4 +1,5 @@
 const lowerDisplay = document.querySelector(".lowerDisplay");
+const upperDisplay = document.querySelector(".upperDisplay");
 const errorDisplay = document.querySelector(".errorDisplay");
 errorDisplay.addEventListener("click", () => errorDisplay.textContent = "");
 const allClear = document.querySelector("#clear");
@@ -21,8 +22,13 @@ const doubleZero = document.querySelector("#doubleZero");
 const zero = document.querySelector("#zero");
 const dot = document.querySelector("#dot");
 const equalsTo = document.querySelector("#equalsTo");
-allClear.addEventListener("click", () => lowerDisplay.textContent = "");
-backSpace.addEventListener("click", () => lowerDisplay.textContent = lowerDisplay.textContent.slice(0,-1));
+allClear.addEventListener("click", () => {
+    lowerDisplay.textContent = "";
+    upperDisplay.textContent = "";
+});
+backSpace.addEventListener("click", () => {
+    lowerDisplay.textContent = lowerDisplay.textContent.slice(0,-1);
+});
 percentage.addEventListener("click", () => appendSymbol("%"));
 division.addEventListener("click", () => appendSymbol("÷"));
 seven.addEventListener("click", () => appendSymbol("7"));
@@ -53,6 +59,9 @@ document.addEventListener("keydown", (e) => {
     else if (e.key==="*") {
         appendSymbol("×");
     }
+    else if (e.key==="Enter") {
+        operate(lowerDisplay.textContent);
+    }
     else {
         errorDisplay.textContent = "Only numbers and mathematical operations are allowed!";
     }
@@ -67,3 +76,42 @@ function appendSymbol(symbol){
         allClear.addEventListener("click", () => errorDisplay.textContent = "");
     }
 }
+
+function operate(str){
+    let arr = str.split("");
+    let operatorArray = arr.filter((element) => element==="+" || element==="-" || element==="×" || element==="÷" || element==="%");
+    let operator = operatorArray.join();
+    let operands = str.split(operator);
+    let num1 = operands[0];
+    let num2 = operands[1];
+    let answer;
+    switch (operator) {
+        case "+":
+            answer = num1 + num2;
+            break;
+        case "-":
+            answer = num1 - num2;
+            break;
+        case "×":
+            answer = num1*num2;
+            break;
+        case "÷":
+            answer = num1/num2;
+            break;
+        case "%":
+            if (num2===""){
+                answer = num1/100;
+            }
+            else {
+                answer = (num1/100)*num2;
+            }
+            break;
+    }
+    if (String(answer).includes(".")){
+        answer = answer.toFixed(3);
+    }
+    upperDisplay.textContent = str;
+    lowerDisplay.textContent = answer;
+}
+
+equalsTo.addEventListener("click", () => operate(lowerDisplay.textContent));
