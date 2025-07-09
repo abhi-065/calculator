@@ -1,4 +1,6 @@
 const lowerDisplay = document.querySelector(".lowerDisplay");
+const errorDisplay = document.querySelector(".errorDisplay");
+errorDisplay.addEventListener("click", () => errorDisplay.textContent = "");
 const allClear = document.querySelector("#clear");
 const backSpace = document.querySelector("#backspace");
 const percentage = document.querySelector("#percentage");
@@ -21,21 +23,31 @@ const dot = document.querySelector("#dot");
 const equalsTo = document.querySelector("#equalsTo");
 allClear.addEventListener("click", () => lowerDisplay.textContent = "");
 backSpace.addEventListener("click", () => lowerDisplay.textContent = lowerDisplay.textContent.slice(0,-1));
-percentage.addEventListener("click", () => lowerDisplay.textContent += "%");
-division.addEventListener("click", () => lowerDisplay.textContent += "÷");
-seven.addEventListener("click", () => lowerDisplay.textContent += "7");
-eight.addEventListener("click", () => lowerDisplay.textContent += "8");
-nine.addEventListener("click", () => lowerDisplay.textContent += "9");
-multiply.addEventListener("click", () => lowerDisplay.textContent += "×");
-four.addEventListener("click", () => lowerDisplay.textContent += "4");
-five.addEventListener("click", () => lowerDisplay.textContent += "5");
-six.addEventListener("click", () => lowerDisplay.textContent += "6");
-minus.addEventListener("click", () => lowerDisplay.textContent += "-");
-one.addEventListener("click", () => lowerDisplay.textContent += "1");
-two.addEventListener("click", () => lowerDisplay.textContent += "2");
-three.addEventListener("click", () => lowerDisplay.textContent += "3");
-plus.addEventListener("click", () => lowerDisplay.textContent += "+");
-doubleZero.addEventListener("click", () => lowerDisplay.textContent += "00");
-zero.addEventListener("click", () => lowerDisplay.textContent += "0");
-dot.addEventListener("click", () => lowerDisplay.textContent += ".");
-document.addEventListener("keypress", (e) => lowerDisplay.textContent += e.key);
+percentage.addEventListener("click", () => appendSymbol("%"));
+division.addEventListener("click", () => appendSymbol("÷"));
+seven.addEventListener("click", () => appendSymbol("7"));
+eight.addEventListener("click", () => appendSymbol("8"));
+nine.addEventListener("click", () => appendSymbol("9"));
+multiply.addEventListener("click", () => appendSymbol("×"));
+four.addEventListener("click", () => appendSymbol("4"));
+five.addEventListener("click", () => appendSymbol("5"));
+six.addEventListener("click", () => appendSymbol("6"));
+minus.addEventListener("click", () => appendSymbol("-"));
+one.addEventListener("click", () => appendSymbol("1"));
+two.addEventListener("click", () => appendSymbol("2"));
+three.addEventListener("click", () => appendSymbol("3"));
+plus.addEventListener("click", () => appendSymbol("+"));
+doubleZero.addEventListener("click", () => appendSymbol("00"));
+zero.addEventListener("click", () => appendSymbol("0"));
+dot.addEventListener("click", () => appendSymbol("."));
+document.addEventListener("keypress", (e) => appendSymbol(`${e.key}`));
+function appendSymbol(symbol){
+    if (lowerDisplay.textContent.length<10){
+        lowerDisplay.textContent += symbol;
+    }
+    else {
+        errorDisplay.textContent = "Only 10 characters are allowed";
+        backSpace.addEventListener("click", () => errorDisplay.textContent = "");
+        allClear.addEventListener("click", () => errorDisplay.textContent = "");
+    }
+}

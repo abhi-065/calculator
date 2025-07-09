@@ -19,9 +19,8 @@ body {
     flex-grow: 1;
     min-height: 250px;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: end;
+    flex-direction: column;  
+    justify-content: space-between; 
     margin-right: 30px;
     margin-left: 30px;
     font-family: "Roboto Mono", monospace;
@@ -70,12 +69,21 @@ body {
     background-color: #FF9F0A;
 }
 
+.errorDisplay {
+    color: #FF9F0A;
+    white-space: nowrap;
+    margin-top: 50px;
+    text-align: center;
+}
+
 .upperDisplay {
     color: #919198;
     font-size: 20px;
+    text-align: end;
 }
 
 .lowerDisplay {
     color: #ffff;
     font-size: 50px;
+    text-align: end;
 }
