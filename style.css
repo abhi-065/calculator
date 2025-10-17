@@ -1,7 +1,8 @@
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .calculator {
@@ -13,6 +14,18 @@ body {
     display: flex;
     flex-direction: column;
     user-select: none;
+}
+
+#Note {
+    font-family: "Roboto Mono";
+    text-wrap: wrap;
+    background-color: black;
+    color: #FF9F0A;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 500px;
 }
 
 .display {

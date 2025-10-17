@@ -64,6 +64,8 @@ document.addEventListener("keydown", (e) => {
     }
     else {
         errorDisplay.textContent = "Only numbers and mathematical operations are allowed!";
+        backSpace.addEventListener("click", () => errorDisplay.textContent = "");
+        allClear.addEventListener("click", () => errorDisplay.textContent = "");
     }
 });
 function appendSymbol(symbol){
